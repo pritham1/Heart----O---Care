@@ -1,0 +1,1 @@
+import React, {useEffect, useState} from 'react'; export default function HospitalList(){ const [hospitals,setHospitals]=useState([]); useEffect(()=>{ fetch('/api/hospitals').then(r=>r.json()).then(setHospitals).catch(()=>{}); },[]); return (<div><h2>Hospitals</h2><ul>{hospitals.map(h=> <li key={h.id}>{h.name} ({h.lat},{h.lng})</li>)}</ul></div>); }
